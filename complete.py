@@ -8,8 +8,8 @@ class Complete:
 		self.args = sys.argv
 		self.torrent_data = {
 			"name"         : self.args[1].lower().replace( " ", "."),
-			"content_path" : self.args[2].lower().replace( " ", "."),
-			"root_path"    : self.args[3].lower().replace( " ", "."),
+			"content_path" : self.args[2],
+			"root_path"    : self.args[3],
 			"category"     : self.args[4].lower().replace( " ", ".")
 		}
 		self.torrent_data["category"] = self.getCategory()
@@ -35,3 +35,4 @@ class Complete:
 		print( contents_walk )
 
 complete = Complete()
+input('Press ENTER to exit')
