@@ -1,7 +1,7 @@
 # complete.py
 import sys
 
-from os import walk
+from os import listdir
 
 class Complete:
 	def __init__( self ):
@@ -27,11 +27,12 @@ class Complete:
 		return category
 
 	def printData( self ):
-		print( self.torrent_data )
+		for _, data in self.torrent_data.items():
+			print ( data )
 
 	def parseContents( self ):
 		contents_walk = {}
-		contents_walk = walk( self.torrent_data['content_path'] )
+		contents_walk = listdir( self.torrent_data['content_path'] )
 		print( contents_walk )
 
 complete = Complete()
