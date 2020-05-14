@@ -2,6 +2,7 @@
 import sys
 import json
 import shutil
+import datetime
 
 from os import listdir, walk
 
@@ -71,6 +72,7 @@ class Complete:
 		with open( file_info[0] + '/COPIED', 'w+' ) as fp:
 			json.dump( {
 				'status' : 'copied',
+				'time'   : datetime.datetime.now().timestamp()
 				'src'    : src,
 				'dest'   : dest
 			}, fp )
