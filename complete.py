@@ -1,5 +1,6 @@
 # complete.py
 import sys
+import json
 import shutil
 
 from os import listdir, walk
@@ -65,7 +66,15 @@ class Complete:
 		else:
 			dest = self.save_dirs['none']
 
-		shutil.move( src, dest )
+		shutil.copy( src, dest )
+
+		with open( file_info[0] + '/COPIED', 'w+' ) as fp:
+			json.dump( {
+				'status' : 'copied',
+				'src'    : src,
+				'dest'   : dest
+			}, fp )
+
 
 	def parseMultiPack( self ):
 		print ( 'coming soon' )
